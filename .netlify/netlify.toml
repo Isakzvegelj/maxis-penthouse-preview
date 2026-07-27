@@ -9,7 +9,6 @@ redirects = []
 [build]
 publish = "/Users/isakzvegelj/bled-penthouse"
 publishOrigin = "default"
-base = "/Users/isakzvegelj/bled-penthouse"
 
 [build.environment]
 
