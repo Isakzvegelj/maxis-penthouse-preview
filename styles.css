@@ -116,6 +116,10 @@ img{max-width:100%;height:auto;display:block}
 .site-footer .brand span{color:var(--gold)}
 .copyright{text-align:center;color:#8fa3a0;font-size:.85rem;margin-top:32px;border-top:1px solid rgba(255,255,255,.1);padding-top:18px}
 
+.bentral-widget{margin:28px auto 0;max-width:800px}
+.bentral-widget:empty{min-height:200px;background:var(--bg-alt);border-radius:var(--radius);border:1px solid var(--line);animation:pulse 1.5s ease-in-out infinite}
+@keyframes pulse{0%,100%{opacity:.6}50%{opacity:1}}
+
 .guide-hero{position:relative;min-height:50vh;display:flex;align-items:center;overflow:hidden}
 .guide-hero-bg{position:absolute;inset:0;background:linear-gradient(160deg,#4a7c6e,#2d5a4e 50%,#1a3d34);}
 .guide-overlay{position:absolute;inset:0;background:linear-gradient(90deg,rgba(20,30,29,.5),transparent 60%)}
@@ -154,4 +158,5 @@ img{max-width:100%;height:auto;display:block}
   .amenities{grid-template-columns:1fr}
   .enquiry{grid-template-columns:1fr}
   .section{padding:54px 0}
+  .bentral-widget{margin:20px auto 0;padding:0 4px}
 }

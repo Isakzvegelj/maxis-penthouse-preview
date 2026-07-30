@@ -28,8 +28,10 @@
       <nav class="nav-links">
         <a href="#about">The Apartment</a>
         <a href="#gallery">Gallery</a>
-        <a href="#reviews">Reviews</a>
         <a href="#amenities">Amenities</a>
+        <a href="#availability">Availability</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#reviews">Reviews</a>
         <a href="#location">Location</a>
         <a href="bled-guide.html">Bled Guide</a>
         <a href="#book" class="btn btn-ghost">Book / Enquire</a>
@@ -116,6 +118,24 @@
     </div>
   </section>
 
+  <section id="availability" class="section section-alt">
+    <div class="container">
+      <p class="eyebrow center">Check dates</p>
+      <h2 class="center">Availability</h2>
+      <p class="center muted">See our calendar for available dates.</p>
+      <div class="bentral-widget" id="bentral-calendar"></div>
+    </div>
+  </section>
+
+  <section id="pricing" class="section">
+    <div class="container">
+      <p class="eyebrow center">Rates</p>
+      <h2 class="center">Pricing</h2>
+      <p class="center muted">Seasonal rates for Maxis Penthouse.</p>
+      <div class="bentral-widget" id="bentral-price-list"></div>
+    </div>
+  </section>
+
   <section id="reviews" class="section">
     <div class="container">
       <p class="eyebrow center">Guest reviews</p>
@@ -167,7 +187,10 @@
     <div class="container center">
       <p class="eyebrow center">Book / Enquire</p>
       <h2 class="center">Plan your stay</h2>
-      <p class="center muted">Leave your details and we'll get back to you with availability.</p>
+
+      <div class="bentral-widget" id="bentral-booking"></div>
+
+      <p class="book-alt">Or send an enquiry:</p>
 
       <form class="enquiry" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
         <div class="field">
@@ -198,7 +221,7 @@
 
       <p class="book-alt">Or book directly:</p>
       <div class="platform-btns">
-        <a class="btn btn-primary" href="https://www.booking.com/hotel/si/maxis-penthouse-with-castle-view.sl.html" target="_blank" rel="noopener">Book on Booking.com</a>
+        <a class="btn btn-primary" href="https://www.booking.com/hotel/si/maxis-penthouse-with-castle-view.sl.html" target="_blank" rel="noopener">Booking.com</a>
       </div>
     </div>
   </section>
@@ -211,11 +234,13 @@
       </div>
       <div class="footer-links">
         <a href="#about">The Apartment</a>
-        <a href="#reviews">Reviews</a>
         <a href="#gallery">Gallery</a>
-        <a href="bled-guide.html">Bled Guide</a>
         <a href="#amenities">Amenities</a>
+        <a href="#availability">Availability</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#reviews">Reviews</a>
         <a href="#location">Location</a>
+        <a href="bled-guide.html">Bled Guide</a>
         <a href="#book">Book</a>
       </div>
       <div class="footer-links">
@@ -242,5 +267,9 @@
       });
     });
   </script>
+
+  <script src="//www.bentral.com/service/embed/calendar.js?uid=5f54637a4e44674d&last=true&lang=sl&key=ef32fbc68fd13b8f9e5ba7a55520e061"></script>
+  <script src="//www.bentral.com/service/embed/price-list.js?uid=5f54637a4e44674d&id=5f7a51794e515f4e&width=full&lang=sl&key=ef32fbc68fd13b8f9e5ba7a55520e061"></script>
+  <script src="//www.bentral.com/service/embed/booking.js?id=5f7a51794e515f4e&width=full&lang=sl&key=ef32fbc68fd13b8f9e5ba7a55520e061"></script>
 </body>
 </html>
