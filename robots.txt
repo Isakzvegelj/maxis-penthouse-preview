@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://bled-penthouse.netlify.app/sitemap.xml
+Sitemap: https://isakzvegelj.github.io/maxis-penthouse/sitemap.xml
