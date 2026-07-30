@@ -7,7 +7,7 @@ redirects = []
 [functions."*"]
 
 [build]
-publish = "/Users/isakzvegelj/bled-penthouse"
+publish = "/Users/isakzvegelj/maxis"
 publishOrigin = "default"
 
 [build.environment]
