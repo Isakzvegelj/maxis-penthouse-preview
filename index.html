@@ -120,19 +120,27 @@
 
   <section id="availability" class="section section-alt">
     <div class="container">
-      <p class="eyebrow center">Check dates</p>
-      <h2 class="center">Availability</h2>
-      <p class="center muted">See our calendar for available dates.</p>
-      <div class="bentral-widget" id="bentral-calendar"></div>
+      <div class="section-header center">
+        <p class="eyebrow center">Check dates</p>
+        <h2 class="center">Availability</h2>
+        <p class="section-desc center muted">See our calendar for available dates.</p>
+      </div>
+      <div class="bentral-widget bentral-calendar">
+        <script src="//www.bentral.com/service/embed/calendar.js?uid=5f54637a4e44674d&last=true&lang=sl&key=ef32fbc68fd13b8f9e5ba7a55520e061"></script>
+      </div>
     </div>
   </section>
 
   <section id="pricing" class="section">
     <div class="container">
-      <p class="eyebrow center">Rates</p>
-      <h2 class="center">Pricing</h2>
-      <p class="center muted">Seasonal rates for Maxis Penthouse.</p>
-      <div class="bentral-widget" id="bentral-price-list"></div>
+      <div class="section-header center">
+        <p class="eyebrow center">Rates</p>
+        <h2 class="center">Pricing</h2>
+        <p class="section-desc center muted">Seasonal rates for Maxis Penthouse.</p>
+      </div>
+      <div class="bentral-widget bentral-pricelist">
+        <script src="//www.bentral.com/service/embed/price-list.js?uid=5f54637a4e44674d&id=5f7a51794e515f4e&width=full&lang=sl&key=ef32fbc68fd13b8f9e5ba7a55520e061"></script>
+      </div>
     </div>
   </section>
 
@@ -184,44 +192,26 @@
   </section>
 
   <section id="book" class="section book">
-    <div class="container center">
-      <p class="eyebrow center">Book / Enquire</p>
-      <h2 class="center">Plan your stay</h2>
-
-      <div class="bentral-widget" id="bentral-booking"></div>
-
-      <p class="book-alt">Or send an enquiry:</p>
-
-      <form class="enquiry" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
-        <div class="field">
-          <label for="name">Name</label>
-          <input id="name" name="name" type="text" placeholder="Your name" required />
+    <div class="container">
+      <div class="section-header center">
+        <p class="eyebrow center">Book / Enquire</p>
+        <h2 class="center">Plan your stay</h2>
+      </div>
+      <div class="booking-grid">
+        <div class="booking-content">
+          <p class="lead">Check availability and book your stay directly, or send us an enquiry.</p>
+          <ul class="booking-features">
+            <li><span class="bf-check">&#10003;</span> Best rate guarantee</li>
+            <li><span class="bf-check">&#10003;</span> Free cancellation</li>
+            <li><span class="bf-check">&#10003;</span> Instant confirmation</li>
+          </ul>
+          <a class="btn btn-primary" href="https://www.booking.com/hotel/si/maxis-penthouse-with-castle-view.sl.html" target="_blank" rel="noopener">Also on Booking.com</a>
         </div>
-        <div class="field">
-          <label for="email">Email</label>
-          <input id="email" name="_replyto" type="email" placeholder="you@email.com" required />
+        <div class="booking-form-wrapper">
+          <div class="bentral-widget">
+            <script src="//www.bentral.com/service/embed/booking.js?id=5f7a51794e515f4e&width=full&lang=sl&key=ef32fbc68fd13b8f9e5ba7a55520e061"></script>
+          </div>
         </div>
-        <div class="field">
-          <label for="dates">Preferred dates</label>
-          <input id="dates" name="dates" type="text" placeholder="e.g. 12–17 July" />
-        </div>
-        <div class="field">
-          <label for="guests">Guests</label>
-          <input id="guests" name="guests" type="number" min="1" max="2" placeholder="2" />
-        </div>
-        <div class="field field-full">
-          <label for="msg">Message</label>
-          <textarea id="msg" name="message" rows="3" placeholder="Anything we should know?"></textarea>
-        </div>
-        <input type="hidden" name="_subject" value="New Maxis Penthouse enquiry" />
-        <input type="hidden" name="_next" value="https://isakzvegelj.github.io/maxis-penthouse/?sent=1" />
-        <button type="submit" class="btn btn-primary btn-block">Send enquiry</button>
-        <p class="form-fallback muted">Prefer email? <a href="mailto:maxispenthouse@gmail.com?subject=Maxis%20Penthouse%20enquiry">maxispenthouse@gmail.com</a></p>
-      </form>
-
-      <p class="book-alt">Or book directly:</p>
-      <div class="platform-btns">
-        <a class="btn btn-primary" href="https://www.booking.com/hotel/si/maxis-penthouse-with-castle-view.sl.html" target="_blank" rel="noopener">Booking.com</a>
       </div>
     </div>
   </section>
@@ -252,10 +242,6 @@
 
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
-    if (location.search.includes('sent=1')) {
-      var b = document.querySelector('.enquiry');
-      if (b) { b.innerHTML = '<p class="sent-ok">✅ Thanks! Your enquiry is on its way — we\'ll reply soon.</p>'; }
-    }
     document.querySelectorAll('.gallery img').forEach(function(img) {
       img.addEventListener('click', function() {
         var src = this.getAttribute('src');
@@ -267,9 +253,5 @@
       });
     });
   </script>
-
-  <script src="//www.bentral.com/service/embed/calendar.js?uid=5f54637a4e44674d&last=true&lang=sl&key=ef32fbc68fd13b8f9e5ba7a55520e061"></script>
-  <script src="//www.bentral.com/service/embed/price-list.js?uid=5f54637a4e44674d&id=5f7a51794e515f4e&width=full&lang=sl&key=ef32fbc68fd13b8f9e5ba7a55520e061"></script>
-  <script src="//www.bentral.com/service/embed/booking.js?id=5f7a51794e515f4e&width=full&lang=sl&key=ef32fbc68fd13b8f9e5ba7a55520e061"></script>
 </body>
 </html>
