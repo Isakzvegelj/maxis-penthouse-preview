@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Page Not Found — Maxis Penthouse Bled</title>
+  <meta name="description" content="The page you're looking for doesn't exist. Head back to Maxis Penthouse — a bright penthouse in central Bled with free parking." />
+  <meta name="robots" content="noindex" />
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <link rel="icon" type="image/png" href="favicon.png" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container nav">
+      <a class="brand" href="index.html">Maxis<span>Penthouse</span></a>
+    </div>
+  </header>
+
+  <section class="section" style="min-height:60vh;display:flex;align-items:center">
+    <div class="container center">
+      <p class="eyebrow center">404</p>
+      <h1 style="font-size:clamp(2rem,5vw,3rem);margin-bottom:1rem">Page not found</h1>
+      <p class="muted" style="font-size:1.1rem;margin-bottom:2rem">The page you're looking for doesn't exist or has been moved.</p>
+      <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
+        <a href="index.html" class="btn btn-primary">Back to Home</a>
+        <a href="bled-guide.html" class="btn btn-ghost">Bled Guide</a>
+        <a href="index.html#book" class="btn btn-ghost">Check Availability</a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <p class="copyright">© <span id="year"></span> Maxis Penthouse</p>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
