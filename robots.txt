@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://isakzvegelj.github.io/maxis-penthouse/sitemap.xml
+Sitemap: https://maxisbled.com/sitemap.xml
