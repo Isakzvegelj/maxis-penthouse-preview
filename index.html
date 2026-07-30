@@ -19,6 +19,13 @@
   <link rel="icon" type="image/png" href="favicon.png" />
   <link rel="apple-touch-icon" href="favicon.png" />
   <link rel="stylesheet" href="styles.css" />
+  <script>
+    (function(){
+      var t=localStorage.getItem('theme');
+      if(t)document.documentElement.setAttribute('data-theme',t);
+      else if(window.matchMedia('(prefers-color-scheme:dark)').matches)document.documentElement.setAttribute('data-theme','dark');
+    })();
+  </script>
 
   <script type="application/ld+json">
   {
@@ -145,6 +152,7 @@
         <a href="bled-guide.html">Bled Guide</a>
         <a href="#book" class="btn btn-primary">Check Availability</a>
       </nav>
+      <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode"><span class="icon-moon">&#9790;</span><span class="icon-sun">&#9728;</span></button>
       <button class="nav-toggle" id="nav-toggle" aria-label="Menu" aria-expanded="false" aria-controls="nav-links">☰</button>
     </div>
   </header>
@@ -435,6 +443,19 @@
 
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
+
+    var themeToggle = document.getElementById('theme-toggle');
+    themeToggle.addEventListener('click', function() {
+      var current = document.documentElement.getAttribute('data-theme');
+      var next = current === 'dark' ? 'light' : 'dark';
+      if (next === 'light') {
+        document.documentElement.removeAttribute('data-theme');
+        localStorage.removeItem('theme');
+      } else {
+        document.documentElement.setAttribute('data-theme', 'dark');
+        localStorage.setItem('theme', 'dark');
+      }
+    });
 
     var navToggle = document.getElementById('nav-toggle');
     var navLinks = document.getElementById('nav-links');
