@@ -145,7 +145,7 @@
       <h2 class="center">Plan Your Perfect Day</h2>
       <p class="center muted guide-intro">Not sure what to do? We're happy to help you plan your itinerary, recommend restaurants, book activities, or arrange transport. Just ask.</p>
 
-      <form class="enquiry guide-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+      <form class="enquiry guide-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST" data-mailto="info@maxisbled.com">
         <div class="field">
           <label for="g-name">Name</label>
           <input id="g-name" name="name" type="text" placeholder="Your name" required />
@@ -205,6 +205,29 @@
 
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
+    var guideForm = document.querySelector('.guide-form');
+    if (guideForm && guideForm.action.indexOf('YOUR_FORM_ID') !== -1) {
+      // Formspree not configured yet -> build a mailto link with the answers.
+      guideForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        var to = guideForm.getAttribute('data-mailto');
+        var subject = 'Maxis Penthouse trip planning request';
+        var lines = [];
+        var inputs = guideForm.querySelectorAll('input, textarea');
+        for (var i = 0; i < inputs.length; i++) {
+          var el = inputs[i];
+          if (!el.name || el.type === 'hidden' || el.type === 'submit') continue;
+          if (el.type === 'checkbox' && !el.checked) continue;
+          var label = el.id ? guideForm.querySelector('label[for="' + el.id + '"]') : null;
+          var pretty = label ? label.textContent.trim() : el.name;
+          lines.push(pretty + ': ' + el.value);
+        }
+        var body = encodeURIComponent(lines.join('\n'));
+        var mailto = 'mailto:' + to + '?subject=' + encodeURIComponent(subject) + '&body=' + body;
+        window.location.href = mailto;
+        guideForm.innerHTML = '<p class="sent-ok">Thanks! Your email app should open with your enquiry ready to send — or write to us directly at <a href="mailto:' + to + '">' + to + '</a>.</p>';
+      });
+    }
     if (location.search.includes('sent=1')) {
       var f = document.querySelector('.guide-form');
       if (f) { f.innerHTML = '<p class="sent-ok">Thanks! We\'ll be in touch to help plan your trip.</p>'; }
