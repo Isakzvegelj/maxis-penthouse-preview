@@ -56,7 +56,6 @@
     "checkinTime": "15:00",
     "checkoutTime": "10:00",
     "petsAllowed": false,
-    "email": "info@maxisbled.com",
     "sameAs": ["https://www.booking.com/hotel/si/maxis-penthouse-with-castle-view.sl.html"],
     "aggregateRating": { "@type": "AggregateRating", "ratingValue": "10", "bestRating": "10", "ratingCount": "4" },
     "amenityFeature": [
@@ -464,7 +463,7 @@
         <a href="#book">Book</a>
       </div>
       <div class="footer-links">
-        <a href="mailto:info@maxisbled.com">info@maxisbled.com</a>
+        <a class="mailto mailto-self" data-email-user="info" data-email-host="maxisbled.com" href="#">[email]</a>
         <a href="https://www.booking.com/hotel/si/maxis-penthouse-with-castle-view.sl.html" target="_blank" rel="noopener">Booking.com</a>
       </div>
     </div>
@@ -561,5 +560,23 @@
     window.addEventListener('scroll', updateStickyBar, { passive: true });
     updateStickyBar();
   </script>
+
+<script>
+(function(){
+  function em(el){var u=el.getAttribute('data-email-user')||'',h=el.getAttribute('data-email-host')||'';return u&&h?u+'@'+h:'';}
+  function bind(){
+    var as=document.querySelectorAll('a.mailto');
+    for(var i=0;i<as.length;i++){var a=as[i],ad=em(a);if(!ad)continue;
+      var s=a.getAttribute('data-email-subject')||'';
+      a.href='mailto:'+ad+(s?'?subject='+encodeURIComponent(s):'');
+      if(a.hasAttribute('data-email-self'))a.textContent=ad;
+      a.removeAttribute('data-email-user');a.removeAttribute('data-email-host');a.removeAttribute('data-email-self');}
+    var sp=document.querySelectorAll('.email-self');
+    for(var j=0;j<sp.length;j++){var e=sp[j],ad2=em(e);if(ad2)e.textContent=ad2;}
+  }
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',bind);else bind();
+})();
+</script>
+
 </body>
 </html>

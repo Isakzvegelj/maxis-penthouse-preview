@@ -152,7 +152,7 @@
       <h2 class="center">Plan Your Perfect Day</h2>
       <p class="center muted guide-intro">Not sure what to do? We're happy to help you plan your itinerary, recommend restaurants, book activities, or arrange transport. Just ask.</p>
 
-      <form class="enquiry guide-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST" data-mailto="info@maxisbled.com">
+      <form class="enquiry guide-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST" data-email-user="info" data-email-host="maxisbled.com">
         <div class="field">
           <label for="g-name">Name</label>
           <input id="g-name" name="name" type="text" placeholder="Your name" required />
@@ -189,7 +189,7 @@
 
       <div class="guide-contact">
         <p class="muted">Or reach us directly:</p>
-        <p><a href="mailto:info@maxisbled.com">info@maxisbled.com</a></p>
+        <p><a class="mailto mailto-self" data-email-user="info" data-email-host="maxisbled.com" href="#">[email]</a></p>
       </div>
     </div>
   </section>
@@ -204,7 +204,7 @@
         <a href="index.html">Home</a>
         <a href="index.html#gallery">Gallery</a>
         <a href="index.html#book">Book</a>
-        <a href="mailto:info@maxisbled.com">info@maxisbled.com</a>
+        <a class="mailto mailto-self" data-email-user="info" data-email-host="maxisbled.com" href="#">[email]</a>
       </div>
     </div>
     <p class="copyright">© <span id="year"></span> Maxis Penthouse</p>
@@ -217,7 +217,7 @@
       // Formspree not configured yet -> build a mailto link with the answers.
       guideForm.addEventListener('submit', function(e) {
         e.preventDefault();
-        var to = guideForm.getAttribute('data-mailto');
+        var to = (guideForm.getAttribute('data-email-user')||'') + '@' + (guideForm.getAttribute('data-email-host')||'');
         var subject = 'Maxis Penthouse trip planning request';
         var lines = [];
         var inputs = guideForm.querySelectorAll('input, textarea');
@@ -271,5 +271,23 @@
       }
     });
   </script>
+
+<script>
+(function(){
+  function em(el){var u=el.getAttribute('data-email-user')||'',h=el.getAttribute('data-email-host')||'';return u&&h?u+'@'+h:'';}
+  function bind(){
+    var as=document.querySelectorAll('a.mailto');
+    for(var i=0;i<as.length;i++){var a=as[i],ad=em(a);if(!ad)continue;
+      var s=a.getAttribute('data-email-subject')||'';
+      a.href='mailto:'+ad+(s?'?subject='+encodeURIComponent(s):'');
+      if(a.hasAttribute('data-email-self'))a.textContent=ad;
+      a.removeAttribute('data-email-user');a.removeAttribute('data-email-host');a.removeAttribute('data-email-self');}
+    var sp=document.querySelectorAll('.email-self');
+    for(var j=0;j<sp.length;j++){var e=sp[j],ad2=em(e);if(ad2)e.textContent=ad2;}
+  }
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',bind);else bind();
+})();
+</script>
+
 </body>
 </html>
