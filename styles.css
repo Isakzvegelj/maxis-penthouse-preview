@@ -226,8 +226,8 @@ img{max-width:100%;height:auto;display:block}
   [data-theme="dark"] .nav-links{background:var(--bg)}
   .nav-links.open{display:flex}
   .nav-links a{padding:12px 0;width:100%;border-bottom:1px solid var(--line)}
-  .nav-links .btn{margin-top:10px}
-  .nav-links .btn + .btn{margin-left:0}
+  .nav-links .btn{width:auto;text-align:center;padding:13px 22px;border-bottom:none;margin-top:12px}
+  .nav-links .btn + .btn{margin-left:0;margin-top:10px}
   .nav-toggle{display:block}
   .facts-grid{grid-template-columns:repeat(2,1fr);gap:18px 10px}
   .two-col{grid-template-columns:1fr;gap:24px}
