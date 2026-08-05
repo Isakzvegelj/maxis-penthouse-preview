@@ -58,10 +58,11 @@ img{max-width:100%;height:auto;display:block}
 .nav{display:flex;align-items:center;justify-content:space-between;height:64px}
 .brand{font-weight:800;font-size:1.15rem;letter-spacing:-.02em}
 .brand span{color:var(--accent);margin-left:4px;font-weight:600}
-.nav-links{display:flex;align-items:center;gap:22px}
+.nav-links{display:flex;align-items:center;gap:26px}
 .nav-links a{font-size:.95rem;color:var(--muted);font-weight:500}
 .nav-links a:hover{color:var(--ink)}
 .nav-links .btn{color:#fff}
+.nav-links .btn + .btn{margin-left:10px}
 .nav-links .btn:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
 .nav-toggle{display:none;background:none;border:none;font-size:1.5rem;cursor:pointer;color:var(--ink)}
 .nav-toggle:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
@@ -225,6 +226,7 @@ img{max-width:100%;height:auto;display:block}
   .nav-links.open{display:flex}
   .nav-links a{padding:12px 0;width:100%;border-bottom:1px solid var(--line)}
   .nav-links .btn{margin-top:10px}
+  .nav-links .btn + .btn{margin-left:0}
   .nav-toggle{display:block}
   .facts-grid{grid-template-columns:repeat(2,1fr);gap:18px 10px}
   .two-col{grid-template-columns:1fr;gap:24px}
