@@ -1,0 +1,286 @@
+/* Maxis Penthouse Bled — English / Slovenian language toggle */
+(function () {
+  'use strict';
+  var KEY = 'maxis_lang';
+
+  /* Slovenian strings. English lives in the HTML as the default. */
+  var SL = {
+    /* nav */
+    nav_apartment: 'Apartma',
+    nav_gallery: 'Galerija',
+    nav_availability: 'Razpoložljivost',
+    nav_reviews: 'Ocene gostov',
+    nav_location: 'Lokacija',
+    nav_guide: 'Bled vodič',
+    nav_check: 'Preveri razpoložljivost',
+    nav_book: 'Rezerviraj',
+    nav_home: 'Domov',
+
+    /* hero (index) */
+    hero_eyebrow: 'Jezero Bled · Slovenija',
+    hero_h1: 'Razkošen penthouse v Bledu — korak od jezera',
+    hero_lead: 'Svetel enosobni penthouse za dve osebi v središču Bleda — zasebni balkon, brezplačno parkiranje in jezero le streljaj stran.',
+
+    /* hero (guide) */
+    guide_hero_eyebrow: 'Maxis Penthouse · Vodič za goste',
+    guide_hero_h1: 'Kaj početi v Bledu',
+    guide_hero_lead: 'Od gradu do otoka, od soteske do jezera — tukaj je nekaj predlogov, kako kar najbolje izkoristiti svoj obisk.',
+
+    /* buttons */
+    btn_check: 'Preveri razpoložljivost',
+    btn_book: 'Rezerviraj',
+    btn_view_gallery: 'Poglej galerijo',
+    btn_open_maps: 'Odpri v zemljevidih',
+    btn_like_dates: 'Ti je všeč? Preveri datume',
+    btn_ready_book: 'Pripravljen na rezervacijo?',
+    btn_check_dates: 'Preveri razpoložljivost za svoje datume',
+    btn_book_direct: 'Rezerviraj neposredno',
+    btn_prefer_booking: 'Raje Booking.com? Rezerviraj tam',
+    btn_send: 'Pošlji povpraševanje',
+    btn_send_guide: 'Pošlji — pomagajte mi načrtovati pot',
+
+    /* facts */
+    fact_bedroom: 'Spalnica',
+    fact_guests: 'Gostje',
+    fact_bathroom: 'Kopalnica',
+    fact_parking: 'Parkirna mesta',
+
+    /* about */
+    about_eyebrow: 'Apartma',
+    about_h2: 'Penthouse, ustvarjen za počasna jutra',
+    about_p1: 'Na vrhnjem nadstropju na Prešernovi cesti 15 je ta enosobni penthouse poln toplih lesenih tal, strešnih oken in zasebnega balkona s pogledom na vrtove in hribe nad Bledom.',
+    about_p2: 'Zbudi se ob strešnih oknih, polnih slovenske svetlobe, s kavo stopi na balkon in v nekaj minutah prideš do jezera. Po dnevu veslanja do otoka ali pohoda na grad se vrni v hladen prostor s klimo, mirno spalnico in lastnim parkirnim mestom spodaj.',
+    about_p3: 'Kuhinje ni — načrtno. Blejske pekarne, kavarne in restavracije so le nekaj minut stran, jutra pa se tu začnejo s kavo na balkonu, ne s posodo.',
+    about_cta: 'Preveri razpoložljivost za svoje datume →',
+
+    /* gallery */
+    gallery_eyebrow: 'Galerija',
+    gallery_h2: 'Hiša &amp; penthouse',
+    gallery_cta: 'Ti je všeč? Preveri svoje datume',
+
+    /* amenities */
+    am_eyebrow: 'Kaj je vključeno',
+    am_h2: 'Udobje',
+    am_parking: 'Parkiranje',
+    am_parking_1: '✓ Brezplačno parkiranje za 2 avtomobila',
+    am_climate: 'Podnebje',
+    am_climate_1: '✓ Klimatska naprava',
+    am_climate_2: '✓ Strešna okna',
+    am_outdoor: 'Zunaj',
+    am_outdoor_1: '✓ Zasebni balkon s pogledom na vrt in hribe',
+    am_sleep: 'Spanje',
+    am_sleep_1: '✓ 1 spalnica · za 2 osebi',
+    am_sleep_2: '✓ 1 kopalnica',
+    am_work: 'Delo',
+    am_work_1: '✓ WiFi',
+    am_note: 'Brez kuhinje — blejske kavarne in restavracije so le kratek sprehod stran (<a href="bled-guide.html">oglej si naš vodič</a>).',
+
+    /* availability */
+    av_eyebrow: 'Preveri datume',
+    av_h2: 'Razpoložljivost',
+    av_desc: 'Živi koledar — kar vidiš, je v realnem času. Poletni vikendi gredo najprej.',
+
+    /* pricing */
+    pr_eyebrow: 'Cene',
+    pr_h2: 'Cenik',
+    pr_desc: 'Sezonske cene — turistična taksa in strošek čiščenja se prikažeta ob koncu rezervacije.',
+
+    /* reviews */
+    rev_eyebrow: 'Ocene gostov',
+    rev_h2: 'Kaj pravijo gostje',
+    rev_hint: 'Vsaka ocena je iz resničnega bivanja — <a href="https://www.booking.com/hotel/si/maxis-penthouse-with-castle-view.sl.html" target="_blank" rel="noopener">preberi več na našem Booking.com profilu</a>.',
+    rev_source: 'Ocena s Booking.com',
+
+    /* location */
+    loc_eyebrow: 'Lokacija',
+    loc_h2: 'Središče Bleda, trenutek od vode',
+    loc_street: '<strong>Prešernova cesta 15, 4260 Bled, Slovenija</strong>',
+    loc_1: 'Kratek sprehod do kopališča Grajsko ob Bledu',
+    loc_2: 'Sprehod do Blejskega gradu in otoka',
+    loc_3: 'Kavarne, pekarne in restavracije v bližini',
+    loc_4: 'Zasebno parkirišče za 2 avtomobila — poleti je parkiranje v Bledu omejeno',
+    loc_5: '~35 km od Letališča Jožeta Pučnika (LJU)',
+
+    /* faq */
+    faq_eyebrow: 'Pogosta vprašanja',
+    faq_h2: 'Pogosta vprašanja',
+    faq1_q: 'Ali je kuhinja?',
+    faq1_a: 'Ne — penthouse nima kuhinje. V Bledu so odlične kavarne, pekarne in restavracije le kratek sprehod stran, z veseljem pa ti priporočimo naše najljubše. Na voljo je aparat za pripravo kave.',
+    faq2_q: 'Ali je parkiranje res brezplačno?',
+    faq2_a: 'Da — na voljo imaš 2 zasebni parkirni mesti brez doplačila. Poleti je parkiranje v Bledu omejeno, zato je to prava prednost.',
+    faq3_q: 'Kako daleč je do Blejskega jezera?',
+    faq3_a: 'Kratek sprehod. Glavno kopališče na Grajskem je od penthousea oddaljeno le nekaj minut hoje.',
+    faq4_q: 'Kdaj sta prihod in odhod?',
+    faq4_a: 'Prijava od 15.00, odjava do 10.00. Zgodnejša prijava ali poznejša odjava sta po dogovoru mogoči.',
+    faq5_q: 'Ali obstaja turistična taksa ali strošek čiščenja?',
+    faq5_a: 'Turistična taksa (~2–3,50 € na gosta na noč) in strošek čiščenja (40 €) se prikažeta ob koncu rezervacije v našem rezervacijskem sistemu.',
+    faq6_q: 'Ali so dovoljeni hišni ljubljenčki?',
+    faq6_a: 'Brez hišnih ljubljenčkov in kajenja — tako penthouse za vsakega gosta ostane svež.',
+    faq7_q: 'Kakšna je politika odpovedi?',
+    faq7_a: 'Prožna. Podrobnosti so prikazane ob rezervaciji v našem koledarju.',
+    faq8_q: 'Ali je WiFi dovolj hiter za delo na daljavo?',
+    faq8_a: 'Da — penthouse ima zanesljiv WiFi, primeren za videoklice in delo na daljavo.',
+
+    /* book */
+    book_eyebrow: 'Rezerviraj svoje bivanje',
+    book_h2: 'Načrtuj svoje bivanje',
+    book_bdirect: 'Rezerviraj neposredno',
+    book_lead: 'Koledar v realnem času, takojšnja potrditev in neposreden stik z nami — brez posrednika.',
+    book_f1: 'Garancija najboljše cene',
+    book_f2: 'Brezplačna odpoved',
+    book_f3: 'Takojšnja potrditev',
+    book_note: 'En apartma, en koledar — ko so tvoji datumi zasedeni, so oddani.',
+
+    /* contact */
+    ct_eyebrow: 'Kontakt',
+    ct_h2: 'Pošlji nam povpraševanje',
+    ct_intro: 'Vprašanja o datumih, cenah ali okolici? Izpolni obrazec in odgovorili ti bomo — rezervacija ni potrebna. Pišeš nam lahko tudi neposredno po e-pošti.',
+    ct_name: 'Ime',
+    ct_name_ph: 'Tvoje ime',
+    ct_email: 'E-pošta',
+    ct_email_ph: 'ti@email.si',
+    ct_dates: 'Datumi bivanja (neobvezno)',
+    ct_dates_ph: 'npr. 12–17. julij',
+    ct_msg: 'Tvoje sporočilo',
+    ct_msg_ph: 'Povej nam, kaj želiš izvedeti — razpoložljivost, cene, okolico, karkoli.',
+    ct_hp: 'Pusti to polje prazno',
+    ct_sent: 'Hvala! Tvoje povpraševanje je bilo sprejeto.',
+    ct_sent2: 'Hvala! Odprla se bo tvoja e-poštna aplikacija s pripravljenim povpraševanjem — ali pa nam piši na <a href="mailto:__TO__">__TO__</a>.',
+    ct_email_us: 'Ali nam piši neposredno na ',
+
+    /* footer */
+    ft_address: 'Prešernova cesta 15, 4260 Bled, Slovenija',
+    ft_book: 'Rezervacija',
+
+    /* sticky bar */
+    st_check: 'Preveri razpoložljivost',
+    st_book: 'Rezerviraj',
+
+    /* guide page */
+    g_intro1: 'Od gradu do otoka, od soteske do jezera — v Bledu ni pomanjkanja stvari za početje. Če se še odločaš, <strong><a href="index.html">kje ostati v Bledu</a></strong>, je naš penthouse kratek sprehod od vsega na tem seznamu.',
+    g_intro2: 'Cene preverjene julija 2026 — pred obiskom preveri na uradnih straneh.',
+    g_eyebrow1: 'Glavne zanimivosti',
+    g_h1: 'Lokacije, ki jih moraš videti',
+    g_castle_h: 'Blejski grad',
+    g_castle_p: 'Na pečini 130 metrov nad jezerom stoji Blejski grad, eden najstarejših gradov v Sloveniji. Obišči muzej, tiskarno, vinsko klet in uživaj v panorami jezera ter Julijskih Alp.',
+    g_castle_tip: '🎫 ~17 € vstopnina · 20 min hoje od penthousea ali 5 min vožnje',
+    g_island_h: 'Blejski otok &amp; cerkev',
+    g_island_p: 'S tradicionalno <em>pletno</em> se odpelji do otoka, preštej 99 kamnitih stopnic, pozvoni na zvonec želja in razišči cerkev Marijinega vnebovzetja. Klasična blejska izkušnja.',
+    g_island_tip: '🛶 Pletna ~18 € povratno · Najem veslaškega čolna od ~15 €/uro',
+    g_vintgar_h: 'Soteska Vintgar',
+    g_vintgar_p: '1,6 km dolga lesena pot spremlja reko Radovno skozi osupljiv apnenčast sotesk z slapovi, tolmuni in smaragdno vodo. Ena najlepših poti v Sloveniji.',
+    g_vintgar_tip: '🚶 ~10 € vstopnina · 5 min vožnje od penthousea',
+    g_beach_h: 'Kopanje v jezeru &amp; plaže',
+    g_beach_p: 'Grajsko kopališče (le nekaj korakov od penthousea) je glavno kopališče. Poleti je voda topla in čista. Za mirnejši kotiček se odpravi na zahodni breg ali na plažo Mala Zaka.',
+    g_beach_tip: '🏊 Brezplačno · Rešilni jopiči na stojnicah za izposojo',
+    g_cycle_h: 'Kolesarjenje okoli jezera',
+    g_cycle_p: '6 km dolga pot obkroži celotno jezero — lahka vožnja s stalnimi razgledi. Izposoja koles je povsod po mestu. Za sproščen tempo s postanki za fotografije si vzemi 30–40 minut.',
+    g_cycle_tip: '🚴 Najem kolesa ~10–15 €/uro · Ravno, lahko površje',
+    g_winter_h: 'Zimski športi',
+    g_winter_p: 'Grajsko kopališče se pozimi spremeni v zunanje drsališče. Bližnje smučišče Vogel ponuja smučanje z razgledom na jezero s pobočij. Proge za tek na smučeh so na voljo tudi okoli jezera.',
+    g_winter_tip: '🎿 Smučarska karta Vogel ~45 €/dan · 20 min vožnje',
+    g_cta1: 'Ostani korak od vsega tega — <a href="index.html#book">preveri razpoložljivost v Maxis Penthouseu</a>.',
+    g_day_eyebrow: 'Izleti',
+    g_day_h: 'Razišči okolico Bleda',
+    g_bohinj_h: 'Bohinjsko jezero',
+    g_bohinj_p: 'Največje stalno jezero v Sloveniji, 25 km od Bleda. Tišje in bolj divje kot Bled, s čudovitim kopanjem, pohodništvom in bližnjim slapom Savica.',
+    g_bohinj_tip: '🚗 ~25 min vožnje · Brezplačno parkiranje',
+    g_ljubljana_h: 'Ljubljana',
+    g_ljubljana_p: 'Očarljiva slovenska prestolnica je le kratka vožnja stran. Razišči staro mestno jedro, Ljubljanski grad, osrednjo tržnico in slavni Zmajski most. Odlično za pol dneva ali večerni izlet.',
+    g_ljubljana_tip: '🚗 ~40 min vožnje · Na voljo je tudi avtobus',
+    g_triglav_h: 'Narodni park Triglav',
+    g_triglav_p: 'Edini slovenski narodni park je tik pred pragom. Odpravi se do slapa Savica, razišči dolino reke Soče ali pa se preizkusi s pohodom na Triglav.',
+    g_triglav_tip: '🥾 Vstop v Bohinju · Veliko poti za vse stopnje',
+    g_cta2: 'Iz Maxis Penthousea so vsi ti izleti iz središča Bleda enostavni — <a href="index.html#book">preveri svoje datume</a>.',
+    g_help_eyebrow: 'Lahko pomagamo',
+    g_help_h: 'Načrtuj svoj popoln dan',
+    g_help_intro: 'Nisi prepričan, kaj početi? Z veseljem ti pomagamo načrtovati pot, priporočimo restavracije, rezerviramo dejavnosti ali uredimo prevoz. Samo vprašaj.',
+    g_name: 'Ime',
+    g_name_ph: 'Tvoje ime',
+    g_email: 'E-pošta',
+    g_email_ph: 'ti@email.si',
+    g_dates: 'Datumi bivanja',
+    g_dates_ph: 'npr. 12–17. julij',
+    g_interests: 'Kaj te zanima?',
+    g_i_hiking: 'Pohodništvo',
+    g_i_swimming: 'Kopanje',
+    g_i_food: 'Hrana &amp; vino',
+    g_i_culture: 'Kultura',
+    g_i_cycling: 'Kolesarjenje',
+    g_i_relax: 'Sprostitev &amp; savna',
+    g_i_family: 'Družinam prijazno',
+    g_i_winter: 'Zimski športi',
+    g_msg: 'Kaj posebej bi rad izvedel?',
+    g_msg_ph: 'Priporočila restavracij, rezervacija čolna, potreba po taksiju...',
+    g_contact: 'Ali pa nam piši neposredno:',
+
+    /* lightbox / misc */
+    lb_aria: 'Pregledovalnik slik',
+    lb_close: 'Zapri'
+  };
+
+  /* capture original (English) html for restoring */
+  var phOrig = {};
+  document.querySelectorAll('[data-i18n]').forEach(function (el) {
+    el.setAttribute('data-i18n-en', el.innerHTML);
+    var k = el.getAttribute('data-i18n');
+    if (k) {} /* keyed by attribute */
+  });
+  document.querySelectorAll('[data-i18n-ph]').forEach(function (el) {
+    phOrig[el.getAttribute('data-i18n-ph')] = el.getAttribute('placeholder') || '';
+  });
+  document.querySelectorAll('[data-i18n-aria]').forEach(function (el) {
+    phOrig['aria:' + el.getAttribute('data-i18n-aria')] = el.getAttribute('aria-label') || '';
+  });
+
+  function currentLang() {
+    var saved = localStorage.getItem(KEY);
+    if (saved === 'sl' || saved === 'en') return saved;
+    var nav = (navigator.language || navigator.userLanguage || '').toLowerCase();
+    return nav.indexOf('sl') === 0 ? 'sl' : 'en';
+  }
+
+  function apply(lang) {
+    var els = document.querySelectorAll('[data-i18n]');
+    for (var i = 0; i < els.length; i++) {
+      var el = els[i];
+      var k = el.getAttribute('data-i18n');
+      if (lang === 'sl' && SL[k] !== undefined) {
+        el.innerHTML = SL[k];
+      } else {
+        el.innerHTML = el.getAttribute('data-i18n-en') || el.innerHTML;
+      }
+    }
+    var phEls = document.querySelectorAll('[data-i18n-ph]');
+    for (var j = 0; j < phEls.length; j++) {
+      var pe = phEls[j];
+      var pk = pe.getAttribute('data-i18n-ph');
+      pe.setAttribute('placeholder', lang === 'sl' && SL[pk] !== undefined ? SL[pk] : phOrig[pk]);
+    }
+    var aEls = document.querySelectorAll('[data-i18n-aria]');
+    for (var m = 0; m < aEls.length; m++) {
+      var ae = aEls[m];
+      var ak = ae.getAttribute('data-i18n-aria');
+      ae.setAttribute('aria-label', lang === 'sl' && SL[ak] !== undefined ? SL[ak] : (phOrig['aria:' + ak] || ''));
+    }
+    document.documentElement.setAttribute('lang', lang);
+    /* update toggle label */
+    document.querySelectorAll('[data-lang-toggle]').forEach(function (btn) {
+      btn.setAttribute('aria-label', lang === 'sl' ? 'Switch to English' : 'Preklopi v slovenščino');
+      var t = btn.querySelector('[data-lang-label]');
+      if (t) t.textContent = lang === 'sl' ? 'EN' : 'SI';
+    });
+    localStorage.setItem(KEY, lang);
+  }
+
+  document.querySelectorAll('[data-lang-toggle]').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      apply(currentLang() === 'sl' ? 'en' : 'sl');
+    });
+  });
+
+  window.maxisT = function (lang) { apply(lang); };
+  window.maxisLang = function () { return currentLang(); };
+
+  apply(currentLang());
+})();
