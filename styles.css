@@ -58,7 +58,7 @@ img{max-width:100%;height:auto;display:block}
 .nav{display:flex;align-items:center;justify-content:space-between;height:64px}
 .brand{font-weight:800;font-size:1.15rem;letter-spacing:-.02em}
 .brand span{color:var(--accent);margin-left:4px;font-weight:600}
-.nav-links{display:flex;align-items:center;gap:18px;flex-wrap:nowrap}
+.nav-links{display:flex;align-items:center;gap:28px;flex-wrap:nowrap}
 .nav-links a{font-size:.95rem;color:var(--muted);font-weight:500;white-space:nowrap}
 .nav-links a:hover{color:var(--ink)}
 .nav-links .btn-primary{color:#fff}
