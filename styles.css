@@ -248,3 +248,12 @@ img{max-width:100%;height:auto;display:block}
   .bentral-pricelist{max-width:100%}
   .sticky-mobile-bar{display:block}
 }
+
+/* ---- Home enquiry form ---- */
+.home-form{margin:0 auto;max-width:720px;display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.home-form .field{display:flex;flex-direction:column;gap:6px}
+.home-form label{font-size:.9rem;font-weight:600;color:var(--ink,inherit)}
+.home-form input,.home-form textarea{width:100%;padding:12px 14px;border:1px solid rgba(0,0,0,.15);border-radius:8px;font-size:1rem;background:#fff}
+.home-form input:focus,.home-form textarea:focus{outline:none;border-color:var(--accent,#2d6a4f);box-shadow:0 0 0 3px rgba(45,106,79,.15)}
+/* Honeypot: invisible to real users, catches bots */
+.home-form .honeypot{position:absolute!important;left:-9999px!important;width:1px;height:1px;overflow:hidden;opacity:0}

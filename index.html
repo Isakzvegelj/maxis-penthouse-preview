@@ -449,6 +449,40 @@
     </div>
   </section>
 
+  <section id="contact" class="section">
+    <div class="container">
+      <div class="section-header center">
+        <p class="eyebrow center">Contact us</p>
+        <h2 class="center">Send us an enquiry</h2>
+      </div>
+      <p class="center muted guide-intro" style="max-width:680px;margin:0 auto 28px;">Questions about dates, pricing, or the area? Fill in the form and we'll get back to you — no booking needed. You can also reach us directly by email.</p>
+      <form class="enquiry home-form" data-email-user="info" data-email-host="maxisbled.com">
+        <div class="field">
+          <label for="h-name">Name</label>
+          <input id="h-name" name="name" type="text" placeholder="Your name" required />
+        </div>
+        <div class="field">
+          <label for="h-email">Email</label>
+          <input id="h-email" name="_replyto" type="email" placeholder="you@email.com" required />
+        </div>
+        <div class="field" style="grid-column:1/-1;">
+          <label for="h-dates">Your stay dates (optional)</label>
+          <input id="h-dates" name="dates" type="text" placeholder="e.g. 12–17 July" />
+        </div>
+        <div class="field field-full" style="grid-column:1/-1;">
+          <label for="h-msg">Your message</label>
+          <textarea id="h-msg" name="message" rows="4" placeholder="Tell us what you'd like to know — availability, pricing, the area, anything." required></textarea>
+        </div>
+        <div class="honeypot" aria-hidden="true">
+          <label for="h-website">Leave this field empty</label>
+          <input id="h-website" name="website" type="text" tabindex="-1" autocomplete="off" />
+        </div>
+        <button type="submit" class="btn btn-primary btn-block">Send enquiry</button>
+        <p class="muted" style="font-size:.85rem;text-align:center;margin-top:12px;">Or email us directly at <a class="mailto mailto-self" data-email-user="info" data-email-host="maxisbled.com" href="#">[email]</a></p>
+      </form>
+    </div>
+  </section>
+
   <footer class="site-footer">
     <div class="container footer-inner">
       <div>
@@ -579,6 +613,32 @@
     for(var j=0;j<sp.length;j++){var e=sp[j],ad2=em(e);if(ad2)e.textContent=ad2;}
   }
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',bind);else bind();
+})();
+
+(function(){
+  var form = document.querySelector('.home-form');
+  if(!form) return;
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    // Honeypot: bots fill hidden fields -> silently drop.
+    var hp = form.querySelector('input[name="website"]');
+    if(hp && hp.value && hp.value.trim() !== ''){ form.innerHTML='<p class="sent-ok">Thanks! Your enquiry has been received.</p>'; return; }
+    var to = (form.getAttribute('data-email-user')||'') + '@' + (form.getAttribute('data-email-host')||'');
+    var subject = 'Enquiry - Maxis Penthouse Bled';
+    var lines = [];
+    var inputs = form.querySelectorAll('input[name], textarea[name]');
+    for(var i=0;i<inputs.length;i++){
+      var el=inputs[i];
+      if(!el.name || el.name==='website') continue;
+      if(el.type==='checkbox'&&!el.checked) continue;
+      var label = el.id ? form.querySelector('label[for="'+el.id+'"]') : null;
+      var pretty = label ? label.textContent.trim() : el.name;
+      if(el.value && el.value.trim()!=='') lines.push(pretty+': '+el.value);
+    }
+    var body = encodeURIComponent(lines.join('\n'));
+    window.location.href = 'mailto:'+to+'?subject='+encodeURIComponent(subject)+'&body='+body;
+    form.innerHTML = '<p class="sent-ok">Thanks! Your email app should open with your enquiry ready to send — or write to us at <a href="mailto:'+to+'">'+to+'</a>.</p>';
+  });
 })();
 </script>
 
