@@ -280,7 +280,7 @@
     for(var i=0;i<as.length;i++){var a=as[i],ad=em(a);if(!ad)continue;
       var s=a.getAttribute('data-email-subject')||'';
       a.href='mailto:'+ad+(s?'?subject='+encodeURIComponent(s):'');
-      if(a.hasAttribute('data-email-self'))a.textContent=ad;
+      if(a.hasAttribute('data-email-self')||a.classList.contains('mailto-self'))a.textContent=ad;
       a.removeAttribute('data-email-user');a.removeAttribute('data-email-host');a.removeAttribute('data-email-self');}
     var sp=document.querySelectorAll('.email-self');
     for(var j=0;j<sp.length;j++){var e=sp[j],ad2=em(e);if(ad2)e.textContent=ad2;}
