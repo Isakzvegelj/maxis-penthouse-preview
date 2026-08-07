@@ -156,10 +156,10 @@ img{max-width:100%;height:auto;display:block}
 
 .review-source{font-size:.78rem;text-transform:uppercase;letter-spacing:.08em;color:var(--accent);font-weight:600;margin-bottom:8px}
 
-.sticky-mobile-bar{display:none;position:fixed;bottom:0;left:0;right:0;z-index:50;padding:12px 16px;background:rgba(255,255,255,.95);backdrop-filter:blur(10px);border-top:1px solid var(--line);transform:translateY(100%);transition:transform .3s}
+.sticky-mobile-bar{display:none;position:fixed;bottom:0;left:0;right:0;z-index:50;padding:8px 12px calc(8px + env(safe-area-inset-bottom));gap:8px;background:rgba(255,255,255,.95);backdrop-filter:blur(10px);border-top:1px solid var(--line);transform:translateY(100%);transition:transform .3s}
 [data-theme="dark"] .sticky-mobile-bar{background:rgba(15,23,22,.95)}
 .sticky-mobile-bar.visible{transform:translateY(0)}
-.sticky-mobile-bar .btn{font-size:1rem;padding:14px 20px}
+.sticky-mobile-bar .btn{flex:1;min-width:0;font-size:.9rem;padding:11px 8px;white-space:nowrap}
 
 .site-footer{background:#1a2826;color:#fff;padding:48px 0 28px}
 .footer-inner{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap}
@@ -250,7 +250,7 @@ img{max-width:100%;height:auto;display:block}
   .booking-grid{grid-template-columns:1fr;gap:24px}
   .bentral-widget{padding:14px}
   .bentral-pricelist{max-width:100%}
-  .sticky-mobile-bar{display:block}
+  .sticky-mobile-bar{display:flex}
 }
 
 /* ---- Home enquiry form ---- */
