@@ -146,6 +146,7 @@
     rev_eyebrow: 'Ocene gostov',
     rev_h2: 'Kaj pravijo gostje',
     rev_hint: 'Vsaka ocena je iz resničnega bivanja — <a href="https://www.booking.com/hotel/si/maxis-penthouse-with-castle-view.sl.html" target="_blank" rel="noopener">preberi več na našem Booking.com profilu</a>.',
+    rev_scroll_hint: 'Podrsaj levo ali desno za več ocen →',
     rev_source: 'Ocena na Booking.com',
 
     /* location */

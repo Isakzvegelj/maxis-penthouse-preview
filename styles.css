@@ -205,6 +205,7 @@ img{max-width:100%;height:auto;display:block}
 .faq-item p{padding:0 24px 18px;color:var(--muted);line-height:1.6}
 
 .review-source{font-size:.78rem;text-transform:uppercase;letter-spacing:.08em;color:var(--accent);font-weight:600;margin-bottom:8px}
+.reviews-scroll-hint{color:var(--accent);font-size:.82rem;font-weight:700;margin:12px 0 2px}
 
 .sticky-mobile-bar{display:none;position:fixed;bottom:0;left:0;right:0;z-index:50;padding:8px 12px calc(8px + env(safe-area-inset-bottom));gap:8px;background:rgba(255,255,255,.95);backdrop-filter:blur(10px);border-top:1px solid var(--line);transform:translateY(100%);transition:transform .3s}
 [data-theme="dark"] .sticky-mobile-bar{background:rgba(15,23,22,.95)}
