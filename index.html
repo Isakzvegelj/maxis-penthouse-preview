@@ -586,12 +586,22 @@
     var galleryScroller = document.querySelector('.gallery');
     if (galleryTrack) galleryTrack.parentNode.appendChild(galleryTrack.cloneNode(true));
     if (galleryScroller) {
-      galleryScroller.addEventListener('pointerdown', function() {
+      var galleryResumeTimer;
+      function pauseGallery() {
+        window.clearTimeout(galleryResumeTimer);
         galleryScroller.classList.add('is-manually-scrolling');
-      });
-      galleryScroller.addEventListener('touchstart', function() {
-        galleryScroller.classList.add('is-manually-scrolling');
-      }, { passive: true });
+      }
+      function resumeGallery() {
+        window.clearTimeout(galleryResumeTimer);
+        galleryResumeTimer = window.setTimeout(function() {
+          galleryScroller.classList.remove('is-manually-scrolling');
+        }, 1200);
+      }
+      galleryScroller.addEventListener('pointerdown', pauseGallery);
+      galleryScroller.addEventListener('pointerup', resumeGallery);
+      galleryScroller.addEventListener('pointercancel', resumeGallery);
+      galleryScroller.addEventListener('touchstart', pauseGallery, { passive: true });
+      galleryScroller.addEventListener('touchend', resumeGallery, { passive: true });
     }
     document.querySelectorAll('.gallery img').forEach(function(img) {
       img.setAttribute('tabindex', '0');
