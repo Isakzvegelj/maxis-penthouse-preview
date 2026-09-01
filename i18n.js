@@ -113,6 +113,7 @@
     tour_h2: 'Poglej v notranjost, še preden prispeš',
     tour_desc: 'Razišči 360° pogled na Maxis Penthouse in si ustvari občutek za prostor od doma.',
     tour_2_title: 'Pogled na penthouse',
+    tour_open: 'Odpri ogled čez celoten zaslon ↗',
 
     /* amenities */
     am_eyebrow: 'Kaj je vključeno',

@@ -265,6 +265,7 @@
           <div class="virtual-tour-frame">
             <iframe title="Second 360° virtual tour of the Maxis Penthouse" src="https://momento360.com/e/uc/481cbc3a7614411aabf48dd145ebda7f?utm_campaign=embed&amp;utm_source=other&amp;utm_medium=embed&amp;size=medium&amp;display-plan=true" allow="accelerometer; gyroscope; autoplay; fullscreen" allowfullscreen="true" webkitallowfullscreen="true" mozallowfullscreen="true" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
           </div>
+          <a class="virtual-tour-open" href="https://momento360.com/e/uc/481cbc3a7614411aabf48dd145ebda7f" target="_blank" rel="noopener" data-i18n="tour_open">Open tour full screen ↗</a>
         </article>
       </div>
     </div>
@@ -582,7 +583,16 @@
     });
 
     var galleryTrack = document.querySelector('.gallery-track');
+    var galleryScroller = document.querySelector('.gallery');
     if (galleryTrack) galleryTrack.parentNode.appendChild(galleryTrack.cloneNode(true));
+    if (galleryScroller) {
+      galleryScroller.addEventListener('pointerdown', function() {
+        galleryScroller.classList.add('is-manually-scrolling');
+      });
+      galleryScroller.addEventListener('touchstart', function() {
+        galleryScroller.classList.add('is-manually-scrolling');
+      }, { passive: true });
+    }
     document.querySelectorAll('.gallery img').forEach(function(img) {
       img.setAttribute('tabindex', '0');
       img.addEventListener('click', function(e) {
